@@ -13,12 +13,22 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
+var PARSE_APP_ID = 'q0bqmwvIJblKB6MWfbqFfwn9DNMLzHOsGNxG8wqi';
+var PARSE_JAVASCRIPT_KEY = '6jwYMqyVNi5P600JVAw1w4y5393jJYg4IZArDIXn';
+
+Parse.initialize(PARSE_APP_ID, PARSE_JAVASCRIPT_KEY); 
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   // *** PC: This function is called when the app and its plugins have loaded. Ionic
   // components are unavailable in app.js until this function is called so if you need to use
   // a plugin or Ionic, put it inside here.
+
+
+   
+
 
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -89,7 +99,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('tab.login', {
+    url: '/login',
+    views: {
+      'tab-login': {
+        templateUrl: 'templates/tab-login.html',
+        controller: 'LoginCtrl'
+      }
+    }
   });
+
+  // .state('tab.register', {
+  //   url: '/register',
+  //   views: {
+  //     'register': {
+  //       templateUrl: 'templates/register.html',
+  //       controller: 'RegisterCtrl'
+  //     }
+  //   }
+  // });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');

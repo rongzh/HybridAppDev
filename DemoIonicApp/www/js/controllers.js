@@ -34,6 +34,25 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+
+.controller('LoginCtrl', function($scope) {
+  $scope.settings = {
+    showSignup: false,
+    enableFriends: true
+  };
+
+  $scope.showSignup = function() {
+    $scope.settings.showSignup = true;
+  }
+})
+
+.controller('RegisterCtrl', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
+
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
